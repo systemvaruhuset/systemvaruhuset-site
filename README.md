@@ -6,7 +6,7 @@ Statisk webbplats för Systemvaruhuset (EnnyPermit & EnnyTicket), publicerad med
     python3 -m http.server 8000
 Öppna http://localhost:8000.
 
-Tema: **Nordisk** (ljus papperston från logotypen, Fraunces + Inter).
+Tema: **Skog** (varm sand och djupgrönt, Instrument Serif + Instrument Sans).
 
 ## Publicera
 1. Pusha till ett GitHub-repo och gå till **Settings → Pages**: *Deploy from a branch*, `main` / root.

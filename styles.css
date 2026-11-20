@@ -1,29 +1,29 @@
 /* =========================================================
    Systemvaruhuset – stilmall
-   Tema: Nordisk (ljus, editoriell, logotypens papperston)
+   Tema: Skog (varm sand, djupgrönt, serif)
    ========================================================= */
 
 :root {
-  --bg: #f3f0e6;
-  --bg-alt: #ebe7da;
-  --surface: #faf8f2;
-  --text: #1b1b19;
-  --muted: #67635a;
-  --line: rgba(27, 27, 25, .14);
-  --accent: #1b1b19;
-  --accent-ink: #f3f0e6;
-  --highlight: #8a6d3b;
-  --radius: 4px;
+  --bg: #f1ebdf;
+  --bg-alt: #1e3a2c;
+  --surface: #f8f4ec;
+  --text: #1c2a22;
+  --muted: #5d6a61;
+  --line: rgba(28, 42, 34, .15);
+  --accent: #1e3a2c;
+  --accent-ink: #f1ebdf;
+  --highlight: #b5672f;
+  --radius: 22px;
   --radius-btn: 999px;
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-eyebrow: "Inter", system-ui, sans-serif;
-  --display-weight: 340;
-  --display-track: -0.02em;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Instrument Sans", system-ui, sans-serif;
+  --font-eyebrow: "Instrument Sans", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-track: -0.015em;
   --display-style-em: italic;
-  --glow: none;
+  --glow: radial-gradient(50% 60% at 80% 20%, rgba(181, 103, 47, .14), transparent 70%);
   --shadow: 0 1px 0 var(--line);
-  --header-bg: rgba(243, 240, 230, .82);
+  --header-bg: rgba(241, 235, 223, .85);
 }
 
 /* =========================================================
@@ -77,7 +77,7 @@ p { margin: 0; text-wrap: pretty; }
 
 /* ---------- Ordmärke (återskapar logotypen) ---------- */
 .wordmark {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: .82rem;
   letter-spacing: .42em;
@@ -327,3 +327,18 @@ p { margin: 0; text-wrap: pretty; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .mock, .marquee-track { animation: none; }
 }
+
+/* =========================================================
+   Skog – temadetaljer
+   ========================================================= */
+.section-alt {
+  --text: #f1ebdf; --muted: #b8c4b9; --line: rgba(241, 235, 223, .16);
+  --surface: #25463a; --highlight: #e0a26f;
+  color: var(--text);
+}
+.hero h1 { font-size: clamp(3rem, 7.4vw, 6.4rem); line-height: .98; }
+.section h2 { font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
+.contact-card { background: var(--accent); color: var(--accent-ink); border: 0; }
+.contact-card .eyebrow,
+.contact-card .section-lead { color: #c9d3c8; }
+.contact-card .btn { background: var(--accent-ink); color: var(--accent); border-color: var(--accent-ink); }
