@@ -1,29 +1,36 @@
 /* =========================================================
    Systemvaruhuset – stilmall
-   Tema: Skog (varm sand, djupgrönt, serif)
+   Tema: Jord (svart bas, sand, olivgrön, blågrått)
    ========================================================= */
 
 :root {
-  --bg: #f1ebdf;
-  --bg-alt: #1e3a2c;
-  --surface: #f8f4ec;
-  --text: #1c2a22;
-  --muted: #5d6a61;
-  --line: rgba(28, 42, 34, .15);
-  --accent: #1e3a2c;
-  --accent-ink: #f1ebdf;
-  --highlight: #b5672f;
-  --radius: 22px;
-  --radius-btn: 999px;
-  --font-display: "Instrument Serif", Georgia, serif;
+  /* Systemvaruhusets färgkarta */
+  --svart: #000000;
+  --blagratt: #8ca5a5;   /* R140 G165 B165 */
+  --olivgron: #80804c;   /* R128 G128 B76  */
+  --sand: #b3b38d;       /* R179 G179 B141 */
+
+  --bg: var(--svart);
+  --bg-alt: var(--svart);
+  --surface: var(--svart);
+  --text: var(--sand);
+  --muted: var(--blagratt);
+  --line: rgba(179, 179, 141, .18);
+  --accent: var(--sand);
+  --accent-ink: var(--svart);
+  --highlight: var(--olivgron);
+  --radius: 4px;
+  --radius-btn: 2px;
+  --font-display: "Fraunces", Georgia, serif;
   --font-body: "Instrument Sans", system-ui, sans-serif;
   --font-eyebrow: "Instrument Sans", system-ui, sans-serif;
-  --display-weight: 400;
-  --display-track: -0.015em;
+  --display-weight: 300;
+  --display-track: -0.02em;
   --display-style-em: italic;
-  --glow: radial-gradient(50% 60% at 80% 20%, rgba(181, 103, 47, .14), transparent 70%);
-  --shadow: 0 1px 0 var(--line);
-  --header-bg: rgba(241, 235, 223, .85);
+  --glow: radial-gradient(45% 55% at 82% 28%, rgba(128, 128, 76, .22), transparent 70%),
+          radial-gradient(35% 45% at 10% 90%, rgba(140, 165, 165, .10), transparent 70%);
+  --shadow: none;
+  --header-bg: rgba(0, 0, 0, .82);
 }
 
 /* =========================================================
@@ -329,16 +336,47 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* =========================================================
-   Skog – temadetaljer
+   Jord – temadetaljer
+   Svart bakgrund överallt; sektioner skiljs åt med tunna linjer.
    ========================================================= */
-.section-alt {
-  --text: #f1ebdf; --muted: #b8c4b9; --line: rgba(241, 235, 223, .16);
-  --surface: #25463a; --highlight: #e0a26f;
-  color: var(--text);
+::selection { background: var(--olivgron); color: var(--svart); }
+.section-alt { border-block: 1px solid var(--line); }
+
+/* Höjdkurvor (topografi) bakom hero – naturinspirerat mönster */
+.hero-glow::after {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-radial-gradient(ellipse 120% 90% at 88% 30%,
+    transparent 0 34px, rgba(128, 128, 76, .28) 34px 35px);
+  -webkit-mask-image: radial-gradient(55% 70% at 85% 35%, #000 0%, transparent 75%);
+          mask-image: radial-gradient(55% 70% at 85% 35%, #000 0%, transparent 75%);
 }
 .hero h1 { font-size: clamp(3rem, 7.4vw, 6.4rem); line-height: .98; }
+.hero h1 em, .section h2 em { color: var(--blagratt); }
 .section h2 { font-size: clamp(2.4rem, 5.4vw, 4.4rem); }
-.contact-card { background: var(--accent); color: var(--accent-ink); border: 0; }
+
+.eyebrow { color: var(--olivgron); }
+.eyebrow::before { content: ""; display: inline-block; width: 1.75rem; height: 1px; background: currentColor; vertical-align: middle; margin-right: .75rem; }
+.contact-card .eyebrow::before { display: none; }
+
+.btn:hover { background: var(--blagratt); border-color: var(--blagratt); }
+.btn-ghost:hover { background: transparent; color: var(--sand); border-color: var(--sand); }
+.nav a:not(.btn):hover, .footer-nav a:hover { color: var(--sand); }
+
+.mock { background: var(--svart); border-color: rgba(179, 179, 141, .28); }
+.pill { background: var(--olivgron); color: var(--svart); font-weight: 600; }
+
+.product, .cell { transition: transform .3s ease, border-color .3s ease; }
+.product:hover, .cell:hover { border-color: var(--olivgron); }
+.product-mark { border-radius: 2px; background: transparent; color: var(--sand); border: 1px solid var(--olivgron); }
+.tag { border-radius: 2px; }
+.product .link-arrow { color: var(--blagratt); }
+
+.num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; letter-spacing: 0; line-height: 1; }
+.values dt { color: var(--sand); }
+
+/* Kontaktkortet är sidans enda färgfält: olivgrönt med svart text */
+.contact-card { background: var(--olivgron); color: var(--svart); border: 0; border-radius: var(--radius); }
 .contact-card .eyebrow,
-.contact-card .section-lead { color: #c9d3c8; }
-.contact-card .btn { background: var(--accent-ink); color: var(--accent); border-color: var(--accent-ink); }
+.contact-card .section-lead { color: var(--svart); }
+.contact-card .btn { background: var(--svart); color: var(--sand); border-color: var(--svart); }
+.contact-card .btn:hover { background: var(--svart); color: var(--blagratt); }
